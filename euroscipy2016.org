@@ -1,0 +1,192 @@
+#+TITLE: Sphinx-Gallery
+#+SUBTITLE: Pimp your documentation with a gallery of examples
+#+AUTHOR: Óscar Nájera
+#+EMAIL: najera.oscar@gmail.com
+#+DATE: 25 Aug 2016 EuroScipy - Erlangen
+#+REVEAL_PLUGINS: (highlight notes)
+#+REVEAL_TRANS: slide
+#+REVEAL_THEME: serif
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/reveal.js/3.0.0/
+
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/style.css" />
+#+REVEAL_EXTRA_CSS: https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css
+#+REVEAL_HEAD_PREAMBLE: <link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+#+OPTIONS: toc:t email:nil num:nil
+#+BEGIN_SRC emacs-lisp :results silent :exports none
+  (setq org-reveal-title-slide "
+
+  <h1 class=\"title\">%t</h1>
+  <h2 class=\"subtitle\">%s</h2>
+
+  <h2>%a</h2>
+  <h3>%e / <a href=\"http://github.com/Titan-C\">
+  <i class=\"fa fa-github\" aria-hidden=\"true\"></i>
+  Titan-C</a></h3>
+
+  <h2>%d</h2>
+  <p class=\"sponsor\">
+  <img src=\"./images/inria-logo.jpg\" alt=\"inria-logo.jpg\" class=\"logo\" />
+  <img src=\"./images/cds-logo.png\" alt=\"cds-logo.png\" />
+  </p>
+  ")
+#+END_SRC
+
+* What is Sphinx-Gallery ?
+
+It's a Sphinx extension that builds an HTML version of any python
+script and puts it into an examples gallery.
+
+** Why do we need it?
+#+ATTR_REVEAL: :frag (appear)
+  - Because we have a lot of code that does something good enough for
+    someone to learn about it.
+  - Looking to the visual output is simpler to our minds than reading
+    the source code.
+  - The Matplotlib Gallery workflow:
+     - Search for something that more or less looks to what you want
+     - Learn about it
+
+#+BEGIN_NOTES
+It is more about our lazy workflow. We don't really read the
+manual. We more or less search for something that looks like what we
+need and borrow the procedure. Matplotlib for example.
+#+END_NOTES
+
+* What problem does it solve?
+
+#+ATTR_REVEAL: :frag (appear)
+  - The Gallery building is completely automated. You just worry about:
+    *your own code*
+  - Now more double code bases: Source code and documentation are the
+    same text file
+  - Support in Python 3 and python 2
+
+#+BEGIN_NOTES
+    To have updated documentation it is best to keep every in one
+    place and written once. It is then easier to update and keep
+    documentation consistent.
+But how do I keep my code examples up to date with my html
+    documentation?
+Sphinx Gallery transforms commented code files into a colorful image
+aware gallery of examples
+#+END_NOTES
+
+* Who uses it?
+#+ATTR_HTML: :class logo
+[[http://scikit-learn.org/dev/auto_examples/index.html][file:images/scikit-learn-logo-small.png]]
+[[http://nilearn.github.io/auto_examples/index.html][file:images/nilearn-logo.png]]
+[[http://scikit-image.org/docs/dev/auto_examples/][file:images/skimage-logo.png]]
+[[http://www.martinos.org/mne/stable/auto_examples/index.html][file:images/mne_logo.png]]
+[[http://www.pygimli.org/_examples_auto/index.html][file:images/gimli-logo.png]]
+[[http://docs.astropy.org/en/stable/generated/examples/index.html][file:images/astropy-logo.png]]
+
+#+BEGIN_NOTES
+  Goaled at the nilearn and scikit-learn projects. It branched from
+  those two custom gallery generators into an independent package.
+  Most of the gallery development came first from original project
+  developers. Now it's mostly maintained by me.
+#+END_NOTES
+
+* SHOWTIME
+** Setting up your Project
+#+BEGIN_SRC sh
+.
+├── doc
+│   ├── conf.py
+│   ├── index.rst
+│   └── Makefile
+└── examples
+    ├── plot_colors.py
+    └── README.txt
+#+END_SRC
+
+#+ATTR_REVEAL: :frag (appear)
+Introduce your Gallery in *examples/README.txt*
+#+ATTR_REVEAL: :frag (appear)
+#+BEGIN_SRC rst
+  .. _My_Gallery:
+
+  My Gallery
+  ==========
+
+  Colormaps Examples
+  ------------------
+
+  Colormap examples using Sphinx-Gallery
+#+END_SRC
+
+#+REVEAL: split
+Write your code in python.
+
+With the *plot_* prefix Sphinx-Gallery executes the script
+#+BEGIN_SRC python
+  # -*- coding: utf-8 -*-
+  r"""
+  ===============================
+  Colormaps alter your perception
+  ===============================
+
+  Here I plot the function
+
+  .. math:: f(x, y) = \sin(x) + \cos(y)
+
+  with different colormaps.
+
+  """
+
+  import numpy as np
+  import matplotlib.pyplot as plt
+
+  x = np.linspace(-np.pi, np.pi, 300)
+  xx, yy = np.meshgrid(x, x)
+  z = np.cos(xx) + np.cos(yy)
+
+  plt.figure()
+  plt.imshow(z)
+
+  plt.figure()
+  plt.imshow(z, cmap=plt.cm.get_cmap('hot'))
+
+  plt.figure()
+  plt.imshow(z, cmap=plt.cm.get_cmap('Spectral'), interpolation='none')
+
+  plt.show() # Not needed for the Gallery. Only for direct execution
+#+END_SRC
+
+** Setting up Sphinx-Gallery
+#+ATTR_REVEAL: :frag (appear)
+Install it with:
+#+ATTR_REVEAL: :frag (appear)
+#+BEGIN_SRC sh
+  $ pip install sphinx-gallery
+#+END_SRC
+
+#+ATTR_REVEAL: :frag (appear)
+Edit the *doc/conf.py* file with
+#+ATTR_REVEAL: :frag (appear)
+#+BEGIN_SRC python
+  import sphinxgallery
+  extensions = [
+      ...
+      'sphinxgallery.gen_gallery',
+      ]
+
+  sphinxgallery_conf = {
+      # path to your examples scripts
+      'examples_dirs' : '../examples',
+      # path where to save gallery generated examples
+      'gallery_dirs'  : 'auto_examples'}
+#+END_SRC
+
+#+ATTR_REVEAL: :frag (appear)
+Build the Documentation
+#+ATTR_REVEAL: :frag (appear)
+#+BEGIN_SRC sh
+  $ make html
+#+END_SRC
+
+** test
+#+BEGIN_HTML
+<iframe src="http://sphinx-gallery.readthedocs.io" width="1000px" height="600px"></iframe>
+#+END_HTML

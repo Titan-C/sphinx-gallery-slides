@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Sphinx-Gallery</title>
+<meta name="author" content="(Óscar Nájera)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/serif.css" id="theme"/>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+
+<h1 class="title">Sphinx-Gallery</h1>
+<h2 class="subtitle">Pimp your documentation with a gallery of examples</h2>
+
+<h2>Óscar Nájera</h2>
+<h3><a href="mailto:najera.oscar@gmail.com">najera.oscar@gmail.com</a> <br/>
+<a href="http://github.com/Titan-C">
+<i class="fa fa-github" aria-hidden="true"></i>
+Titan-C</a></h3>
+
+<h3>25 Aug 2016 EuroScipy - Erlangen</h3>
+<p class="sponsor">
+<img src="./images/inria-logo.jpg" alt="inria-logo.jpg" class="logo" />
+<img src="./images/cds-logo.png" alt="cds-logo.png" />
+</p>
+
+</section>
+<section id="table-of-contents">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-orgheadline2">What is Sphinx-Gallery ?</a>
+<ul>
+<li><a href="#/slide-orgheadline1">Why do we need it?</a></li>
+</ul>
+</li>
+<li><a href="#/slide-orgheadline3">What problem does it solve?</a></li>
+<li><a href="#/slide-orgheadline4">Who uses it?</a></li>
+<li><a href="#/slide-orgheadline8">SHOWTIME</a>
+<ul>
+<li><a href="#/slide-orgheadline5">Setting up your Project</a></li>
+<li><a href="#/slide-orgheadline6">Setting up Sphinx-Gallery</a></li>
+<li><a href="#/slide-orgheadline7">test</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="slide-orgheadline2">
+<h2 id="orgheadline2">What is Sphinx-Gallery ?</h2>
+<p>
+It's a Sphinx extension that builds an HTML version of any python
+script and puts it into an examples gallery.
+</p>
+
+</section>
+<section id="slide-orgheadline1">
+<h3 id="orgheadline1">Why do we need it?</h3>
+<ul>
+<li class="fragment appear">Because we have a lot of code that does something good enough for
+someone to learn about it.</li>
+<li class="fragment appear">Looking to the visual output is simpler to our minds than reading
+the source code.</li>
+<li class="fragment appear">The Matplotlib Gallery workflow:
+<ul>
+<li>Search for something that more or less looks to what you want</li>
+<li>Learn about it</li>
+
+</ul></li>
+
+</ul>
+
+<aside class="notes">
+<p>
+It is more about our lazy workflow. We don't really read the
+manual. We more or less search for something that looks like what we
+need and borrow the procedure. Matplotlib for example.
+</p>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline3">
+<h2 id="orgheadline3">What problem does it solve?</h2>
+<ul>
+<li class="fragment appear">The Gallery building is completely automated. You just worry about:
+<b>your own code</b></li>
+<li class="fragment appear">Now more double code bases: Source code and documentation are the
+same text file</li>
+<li class="fragment appear">Support in Python 3 and python 2</li>
+
+</ul>
+
+<aside class="notes">
+<p>
+    To have updated documentation it is best to keep every in one
+    place and written once. It is then easier to update and keep
+    documentation consistent.
+But how do I keep my code examples up to date with my html
+    documentation?
+Sphinx Gallery transforms commented code files into a colorful image
+aware gallery of examples
+</p>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline4">
+<h2 id="orgheadline4">Who uses it?</h2>
+<p class="logo">
+<a href="http://scikit-learn.org/dev/auto_examples/index.html" class="logo"><img src="images/scikit-learn-logo-small.png" alt="scikit-learn-logo-small.png" class="logo" /></a>
+<a href="http://nilearn.github.io/auto_examples/index.html"><img src="images/nilearn-logo.png" alt="nilearn-logo.png" /></a>
+<a href="http://scikit-image.org/docs/dev/auto_examples/"><img src="images/skimage-logo.png" alt="skimage-logo.png" /></a>
+<a href="http://www.martinos.org/mne/stable/auto_examples/index.html"><img src="images/mne_logo.png" alt="mne_logo.png" /></a>
+<a href="http://www.pygimli.org/_examples_auto/index.html"><img src="images/gimli-logo.png" alt="gimli-logo.png" /></a>
+<a href="http://docs.astropy.org/en/stable/generated/examples/index.html"><img src="images/astropy-logo.png" alt="astropy-logo.png" /></a>
+</p>
+
+<aside class="notes">
+<p>
+Goaled at the nilearn and scikit-learn projects. It branched from
+those two custom gallery generators into an independent package.
+Most of the gallery development came first from original project
+developers. Now it's mostly maintained by me.
+</p>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline8">
+<h2 id="orgheadline8">SHOWTIME</h2>
+<div class="outline-text-2" id="text-orgheadline8">
+</div></section>
+<section id="slide-orgheadline5">
+<h3 id="orgheadline5">Setting up your Project</h3>
+<div class="org-src-container">
+
+<pre><code class="sh" >.
+├── doc
+│   ├── conf.py
+│   ├── index.rst
+│   └── Makefile
+└── examples
+    ├── plot_colors.py
+    └── README.txt
+</code></pre>
+</div>
+
+<p class="fragment (appear)">
+Introduce your Gallery in <b>examples/README.txt</b>
+</p>
+<div class="org-src-container">
+
+<pre class="fragment (appear)"><code class="rst" >.. _My_Gallery:
+
+My Gallery
+==========
+
+Colormaps Examples
+------------------
+
+Colormap examples using Sphinx-Gallery
+</code></pre>
+</div>
+
+</section>
+<section>
+<p>
+Write your code in python.
+</p>
+
+<p>
+With the <b>plot_</b> prefix Sphinx-Gallery executes the script
+</p>
+<div class="org-src-container">
+
+<pre><code class="python" ># -*- coding: utf-8 -*-
+r"""
+===============================
+Colormaps alter your perception
+===============================
+
+Here I plot the function
+
+.. math:: f(x, y) = \sin(x) + \cos(y)
+
+with different colormaps.
+
+"""
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(-np.pi, np.pi, 300)
+xx, yy = np.meshgrid(x, x)
+z = np.cos(xx) + np.cos(yy)
+
+plt.figure()
+plt.imshow(z)
+
+plt.figure()
+plt.imshow(z, cmap=plt.cm.get_cmap('hot'))
+
+plt.figure()
+plt.imshow(z, cmap=plt.cm.get_cmap('Spectral'), interpolation='none')
+
+plt.show() # Not needed for the Gallery. Only for direct execution
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgheadline6">
+<h3 id="orgheadline6">Setting up Sphinx-Gallery</h3>
+<p class="fragment (appear)">
+Install it with:
+</p>
+<div class="org-src-container">
+
+<pre class="fragment (appear)"><code class="sh" >$ pip install sphinx-gallery
+</code></pre>
+</div>
+
+<p class="fragment (appear)">
+Edit the <b>doc/conf.py</b> file with
+</p>
+<div class="org-src-container">
+
+<pre class="fragment (appear)"><code class="python" >import sphinxgallery
+extensions = [
+    ...
+    'sphinxgallery.gen_gallery',
+    ]
+
+sphinxgallery_conf = {
+    # path to your examples scripts
+    'examples_dirs' : '../examples',
+    # path where to save gallery generated examples
+    'gallery_dirs'  : 'auto_examples'}
+</code></pre>
+</div>
+
+<p class="fragment (appear)">
+Build the Documentation
+</p>
+<div class="org-src-container">
+
+<pre class="fragment (appear)"><code class="sh" >$ make html
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgheadline7">
+<h3 id="orgheadline7">test</h3>
+<iframe src="http://sphinx-gallery.readthedocs.io" width="1000px" height="600px"></iframe>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
+<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'slide', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
