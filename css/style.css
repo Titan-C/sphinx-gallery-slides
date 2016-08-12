@@ -1,0 +1,16 @@
+#sec-title-slide .title {font-size: 2.7em;}
+#sec-title-slide .subtitle {font-size: 1.5em;}
+#sec-title-slide h2 {font-size: 1em;}
+#sec-title-slide h3 {font-size: 0.8em;}
+
+.reveal .sponsor img {
+    float: left;
+    height: 100px;
+    margin: 12px;
+
+}
+.logo a {
+    float: left;
+    height: 150px;
+    margin: 12px;
+}

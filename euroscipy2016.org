@@ -188,5 +188,12 @@ Build the Documentation
 
 ** test
 #+BEGIN_HTML
-<iframe src="http://sphinx-gallery.readthedocs.io" width="1000px" height="600px"></iframe>
+<iframe src="https://sphinx-gallery.readthedocs.io" width="1000px" height="600px"></iframe>
 #+END_HTML
+
+#+BEGIN_SRC emacs-lisp :exports none
+  (org-reveal-export-to-html)
+  (rename-file "euroscipy2016.html" "index.html" t)
+#+END_SRC
+
+#+RESULTS:
