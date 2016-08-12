@@ -34,12 +34,11 @@
 <h2 class="subtitle">Pimp your documentation with a gallery of examples</h2>
 
 <h2>Óscar Nájera</h2>
-<h3><a href="mailto:najera.oscar@gmail.com">najera.oscar@gmail.com</a> <br/>
-<a href="http://github.com/Titan-C">
+<h3><a href="mailto:najera.oscar@gmail.com">najera.oscar@gmail.com</a> / <a href="http://github.com/Titan-C">
 <i class="fa fa-github" aria-hidden="true"></i>
 Titan-C</a></h3>
 
-<h3>25 Aug 2016 EuroScipy - Erlangen</h3>
+<h2>25 August 2016 - EuroScipy - Erlangen</h2>
 <p class="sponsor">
 <img src="./images/inria-logo.jpg" alt="inria-logo.jpg" class="logo" />
 <img src="./images/cds-logo.png" alt="cds-logo.png" />
@@ -62,13 +61,14 @@ Titan-C</a></h3>
 <ul>
 <li><a href="#/slide-orgheadline5">Setting up your Project</a></li>
 <li><a href="#/slide-orgheadline6">Setting up Sphinx-Gallery</a></li>
-<li><a href="#/slide-orgheadline7">test</a></li>
+<li><a href="#/slide-orgheadline7"></a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 </section>
+
 <section>
 <section id="slide-orgheadline2">
 <h2 id="orgheadline2">What is Sphinx-Gallery ?</h2>
@@ -94,15 +94,6 @@ the source code.</li>
 
 </ul>
 
-<aside class="notes">
-<p>
-It is more about our lazy workflow. We don't really read the
-manual. We more or less search for something that looks like what we
-need and borrow the procedure. Matplotlib for example.
-</p>
-
-</aside>
-
 </section>
 </section>
 <section>
@@ -112,18 +103,24 @@ need and borrow the procedure. Matplotlib for example.
 <li class="fragment appear">The Gallery building is completely automated. You just worry about:
 <b>your own code</b></li>
 <li class="fragment appear">Now more double code bases: Source code and documentation are the
-same text file</li>
+same python source file</li>
 <li class="fragment appear">Support in Python 3 and python 2</li>
 
 </ul>
 
 <aside class="notes">
 <p>
-    To have updated documentation it is best to keep every in one
-    place and written once. It is then easier to update and keep
-    documentation consistent.
+To have updated documentation it is best to keep every in one
+place and written once. It is then easier to update and keep
+documentation consistent.
+</p>
+
+<p>
 But how do I keep my code examples up to date with my html
-    documentation?
+documentation?
+</p>
+
+<p>
 Sphinx Gallery transforms commented code files into a colorful image
 aware gallery of examples
 </p>
@@ -165,14 +162,15 @@ developers. Now it's mostly maintained by me.
 <h3 id="orgheadline5">Setting up your Project</h3>
 <div class="org-src-container">
 
-<pre><code class="sh" >.
+<pre><code class="sh" >awesome_python_project
 ├── doc
 │   ├── conf.py
 │   ├── index.rst
 │   └── Makefile
-└── examples
-    ├── plot_colors.py
-    └── README.txt
+├── examples
+│   ├── conf.py
+│   ├── plot_colors.py
+│   └── README.txt
 </code></pre>
 </div>
 
@@ -280,8 +278,8 @@ Build the Documentation
 
 </section>
 <section id="slide-orgheadline7">
-<h3 id="orgheadline7">test</h3>
-<iframe src="https://sphinx-gallery.readthedocs.io" width="1000px" height="600px"></iframe>
+<h3 id="orgheadline7"><a href="https://sphinx-gallery.readthedocs.io">https://sphinx-gallery.readthedocs.io</a></h3>
+<iframe src="https://sphinx-gallery.readthedocs.io/en/latest/auto_examples/index.html" width="100%" height="600px"></iframe>
 </section>
 </section>
 </div>

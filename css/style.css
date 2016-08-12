@@ -1,16 +1,21 @@
-#sec-title-slide .title {font-size: 2.7em;}
-#sec-title-slide .subtitle {font-size: 1.5em;}
+#sec-title-slide .title {font-size: 2.8em;}
+#sec-title-slide .subtitle {font-size: 1.8em;}
 #sec-title-slide h2 {font-size: 1em;}
 #sec-title-slide h3 {font-size: 0.8em;}
 
 .reveal .sponsor img {
-    float: left;
+    border: 0;
     height: 100px;
     margin: 12px;
 
 }
-.logo a {
-    float: left;
+.reveal .logo img {
+    border: 2px;
     height: 150px;
-    margin: 12px;
+    margin: 5px;
+}
+
+.reveal pre code{
+    font-size: 1.4em;
+    max-height: 435px;
 }

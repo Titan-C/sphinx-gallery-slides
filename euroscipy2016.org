@@ -2,7 +2,7 @@
 #+SUBTITLE: Pimp your documentation with a gallery of examples
 #+AUTHOR: Óscar Nájera
 #+EMAIL: najera.oscar@gmail.com
-#+DATE: 25 Aug 2016 EuroScipy - Erlangen
+#+DATE: 25 August 2016 - EuroScipy - Erlangen
 #+REVEAL_PLUGINS: (highlight notes)
 #+REVEAL_TRANS: slide
 #+REVEAL_THEME: serif
@@ -11,26 +11,7 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/style.css" />
 #+REVEAL_EXTRA_CSS: https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css
 #+REVEAL_HEAD_PREAMBLE: <link rel="stylesheet" type="text/css" href="css/style.css"/>
-
 #+OPTIONS: toc:t email:nil num:nil
-#+BEGIN_SRC emacs-lisp :results silent :exports none
-  (setq org-reveal-title-slide "
-
-  <h1 class=\"title\">%t</h1>
-  <h2 class=\"subtitle\">%s</h2>
-
-  <h2>%a</h2>
-  <h3>%e / <a href=\"http://github.com/Titan-C\">
-  <i class=\"fa fa-github\" aria-hidden=\"true\"></i>
-  Titan-C</a></h3>
-
-  <h2>%d</h2>
-  <p class=\"sponsor\">
-  <img src=\"./images/inria-logo.jpg\" alt=\"inria-logo.jpg\" class=\"logo\" />
-  <img src=\"./images/cds-logo.png\" alt=\"cds-logo.png\" />
-  </p>
-  ")
-#+END_SRC
 
 * What is Sphinx-Gallery ?
 
@@ -47,27 +28,23 @@ script and puts it into an examples gallery.
      - Search for something that more or less looks to what you want
      - Learn about it
 
-#+BEGIN_NOTES
-It is more about our lazy workflow. We don't really read the
-manual. We more or less search for something that looks like what we
-need and borrow the procedure. Matplotlib for example.
-#+END_NOTES
-
 * What problem does it solve?
 
 #+ATTR_REVEAL: :frag (appear)
   - The Gallery building is completely automated. You just worry about:
     *your own code*
   - Now more double code bases: Source code and documentation are the
-    same text file
+    same python source file
   - Support in Python 3 and python 2
 
 #+BEGIN_NOTES
-    To have updated documentation it is best to keep every in one
-    place and written once. It is then easier to update and keep
-    documentation consistent.
+To have updated documentation it is best to keep every in one
+place and written once. It is then easier to update and keep
+documentation consistent.
+
 But how do I keep my code examples up to date with my html
-    documentation?
+documentation?
+
 Sphinx Gallery transforms commented code files into a colorful image
 aware gallery of examples
 #+END_NOTES
@@ -91,14 +68,15 @@ aware gallery of examples
 * SHOWTIME
 ** Setting up your Project
 #+BEGIN_SRC sh
-.
+awesome_python_project
 ├── doc
 │   ├── conf.py
 │   ├── index.rst
 │   └── Makefile
-└── examples
-    ├── plot_colors.py
-    └── README.txt
+├── examples
+│   ├── conf.py
+│   ├── plot_colors.py
+│   └── README.txt
 #+END_SRC
 
 #+ATTR_REVEAL: :frag (appear)
@@ -186,12 +164,29 @@ Build the Documentation
   $ make html
 #+END_SRC
 
-** test
+** https://sphinx-gallery.readthedocs.io
 #+BEGIN_HTML
-<iframe src="https://sphinx-gallery.readthedocs.io" width="1000px" height="600px"></iframe>
+<iframe src="https://sphinx-gallery.readthedocs.io/en/latest/auto_examples/index.html" width="100%" height="600px"></iframe>
 #+END_HTML
 
-#+BEGIN_SRC emacs-lisp :exports none
+#+BEGIN_SRC emacs-lisp :results silent :exports none
+  (setq org-reveal-title-slide "
+
+  <h1 class=\"title\">%t</h1>
+  <h2 class=\"subtitle\">%s</h2>
+
+  <h2>%a</h2>
+  <h3>%e / <a href=\"http://github.com/Titan-C\">
+  <i class=\"fa fa-github\" aria-hidden=\"true\"></i>
+  Titan-C</a></h3>
+
+  <h2>%d</h2>
+  <p class=\"sponsor\">
+  <img src=\"./images/inria-logo.jpg\" alt=\"inria-logo.jpg\" class=\"logo\" />
+  <img src=\"./images/cds-logo.png\" alt=\"cds-logo.png\" />
+  </p>
+  ")
+
   (org-reveal-export-to-html)
   (rename-file "euroscipy2016.html" "index.html" t)
 #+END_SRC
