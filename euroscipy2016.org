@@ -11,45 +11,50 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/style.css" />
 #+REVEAL_EXTRA_CSS: https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css
 #+REVEAL_HEAD_PREAMBLE: <link rel="stylesheet" type="text/css" href="css/style.css"/>
-#+OPTIONS: toc:t email:nil num:nil
+#+OPTIONS: toc:nil email:nil num:nil
+
+#+BEGIN_NOTES
+Hello Everyone, good afternoon.
+
+I would like to start thanking the organizer for giving me the
+oportunity to present this project and also thank Inria an
+Paris-Saclay Center for data Science for sponsoring me to develop this
+project.
+
+Thus Sphinx-Gallery: Pimp your documentation with a gallery of examples.
+#+END_NOTES
 
 * What is Sphinx-Gallery ?
-
-It's a Sphinx extension that builds an HTML version of any python
+It's an extension that builds an HTML version of any python
 script and puts it into an examples gallery.
+#+BEGIN_NOTES
+What is Sphinx-Gallery? Sphinx as you probably already know is our go to
+package for documenting python packages and Gallery because we want to
+showcase examples in our documentation.
+#+END_NOTES
 
-** Why do we need it?
-#+ATTR_REVEAL: :frag (appear)
-  - Because we have a lot of code that does something good enough for
-    someone to learn about it.
-  - Looking to the visual output is simpler to our minds than reading
-    the source code.
-  - The Matplotlib Gallery workflow:
-     - Search for something that more or less looks to what you want
-     - Learn about it
-
-* What problem does it solve?
+** You are certainly familiar with this
+#+BEGIN_HTML
+<iframe src="http://matplotlib.org/gallery.html" width="80%" height="600px"></iframe>
+#+END_HTML
+http://matplotlib.org/gallery.html
+#+BEGIN_NOTES
+A great example of this asset is the matplotlib documentation with its
+gallery. Learning from examples is a great way to get started with a
+package and quickly grasp what you can do with it.
+#+END_NOTES
+* Now you can have it too!!
+** And Better with Sphinx-Gallery
 
 #+ATTR_REVEAL: :frag (appear)
   - The Gallery building is completely automated. You just worry about:
     *your own code*
   - Now more double code bases: Source code and documentation are the
     same python source file
-  - Support in Python 3 and python 2
-
-#+BEGIN_NOTES
-To have updated documentation it is best to keep every in one
-place and written once. It is then easier to update and keep
-documentation consistent.
-
-But how do I keep my code examples up to date with my html
-documentation?
-
-Sphinx Gallery transforms commented code files into a colorful image
-aware gallery of examples
-#+END_NOTES
-
-* Who uses it?
+  - Your examples can be downloaded as python source files & Jupyter Notebooks
+  - Visible error messages when your examples don't build correctly
+  - Automatically link from your API to examples using the functions
+* Is someone already using it?
 #+ATTR_HTML: :class logo
 [[http://scikit-learn.org/dev/auto_examples/index.html][file:images/scikit-learn-logo-small.png]]
 [[http://nilearn.github.io/auto_examples/index.html][file:images/nilearn-logo.png]]
@@ -74,9 +79,9 @@ awesome_python_project
 │   ├── index.rst
 │   └── Makefile
 ├── examples
-│   ├── conf.py
-│   ├── plot_colors.py
-│   └── README.txt
+│   ├── README.txt
+│   └── plot_colors.py
+...
 #+END_SRC
 
 #+ATTR_REVEAL: :frag (appear)
@@ -94,11 +99,11 @@ Introduce your Gallery in *examples/README.txt*
   Colormap examples using Sphinx-Gallery
 #+END_SRC
 
-#+REVEAL: split
-Write your code in python.
+** Your examples in Python
 
 With the *plot_* prefix Sphinx-Gallery executes the script
-#+BEGIN_SRC python
+
+#+BEGIN_SRC python :exports source
   # -*- coding: utf-8 -*-
   r"""
   ===============================
@@ -129,7 +134,16 @@ With the *plot_* prefix Sphinx-Gallery executes the script
   plt.figure()
   plt.imshow(z, cmap=plt.cm.get_cmap('Spectral'), interpolation='none')
 
-  plt.show() # Not needed for the Gallery. Only for direct execution
+  # Not needed for the Gallery.
+  # Only for direct execution
+  plt.show()
+
+  ###############################################################################
+  # You can define blocks in your source code
+  # with interleaving prose.
+  #
+
+  print("This writes to stdout and will be displayed in the HTML file")
 #+END_SRC
 
 ** Setting up Sphinx-Gallery
@@ -143,14 +157,14 @@ Install it with:
 #+ATTR_REVEAL: :frag (appear)
 Edit the *doc/conf.py* file with
 #+ATTR_REVEAL: :frag (appear)
-#+BEGIN_SRC python
-  import sphinxgallery
+#+BEGIN_SRC python :exports source
+  import sphinx_gallery
   extensions = [
       ...
-      'sphinxgallery.gen_gallery',
+      'sphinx_gallery.gen_gallery',
       ]
 
-  sphinxgallery_conf = {
+  sphinx_gallery_conf = {
       # path to your examples scripts
       'examples_dirs' : '../examples',
       # path where to save gallery generated examples
@@ -163,12 +177,18 @@ Build the Documentation
 #+BEGIN_SRC sh
   $ make html
 #+END_SRC
+** Enjoy :)
 
 ** https://sphinx-gallery.readthedocs.io
 #+BEGIN_HTML
 <iframe src="https://sphinx-gallery.readthedocs.io/en/latest/auto_examples/index.html" width="100%" height="600px"></iframe>
 #+END_HTML
-
+** A taste of Nilearn: From API to Examples
+#+BEGIN_HTML
+<iframe src="http://nilearn.github.io/modules/generated/nilearn.input_data.NiftiMasker.html#nilearn.input_data.NiftiMasker" width="100%" height="600px"></iframe>
+#+END_HTML
+http://nilearn.github.io/modules/generated/nilearn.input_data.NiftiMasker.html#nilearn.input_data.NiftiMasker
+* Export config                                                    :noexport:
 #+BEGIN_SRC emacs-lisp :results silent :exports none
   (setq org-reveal-title-slide "
 
@@ -190,5 +210,3 @@ Build the Documentation
   (org-reveal-export-to-html)
   (rename-file "euroscipy2016.html" "index.html" t)
 #+END_SRC
-
-#+RESULTS:
