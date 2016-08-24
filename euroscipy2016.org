@@ -16,24 +16,30 @@
 #+BEGIN_NOTES
 Hello Everyone, good afternoon.
 
-I would like to start thanking the organizer for giving me the
+I would like to start thanking the organizers for giving me the
 oportunity to present this project and also thank Inria an
 Paris-Saclay Center for data Science for sponsoring me to develop this
 project.
 
-Thus Sphinx-Gallery: Pimp your documentation with a gallery of examples.
-#+END_NOTES
+I'm going to present to you: Sphinx-Gallery: Pimp your documentation
+with a gallery of examples.
+ #+END_NOTES
 
 * What is Sphinx-Gallery ?
 It's an extension that builds an HTML version of any python
 script and puts it into an examples gallery.
 #+BEGIN_NOTES
-What is Sphinx-Gallery? Sphinx as you probably already know is our go to
-package for documenting python packages and Gallery because we want to
-showcase examples in our documentation.
+- Documentation has possibly the biggest impact in converting your
+package into software that is used by a large community.
+
+- For python developers, Sphinx is our go to tool at the moment of
+documenting our software.
+
+- Text
 #+END_NOTES
 
 ** You are certainly familiar with this
+
 #+BEGIN_HTML
 <iframe src="http://matplotlib.org/gallery.html" width="80%" height="600px"></iframe>
 #+END_HTML
@@ -42,6 +48,14 @@ http://matplotlib.org/gallery.html
 A great example of this asset is the matplotlib documentation with its
 gallery. Learning from examples is a great way to get started with a
 package and quickly grasp what you can do with it.
+
+The visual search is also great. Sometimes you don't know what you
+want or how it's called until it is in front of your eyes.
+
+Many python packages imitated this model, and developed their own
+solutions. The goal of Sphinx-Gallery is to unify all these gallery
+generators in one code base, centralize the development effort and
+share it, so that everyone can benefit from it.
 #+END_NOTES
 * Now you can have it too!!
 ** And Better with Sphinx-Gallery
@@ -51,6 +65,8 @@ package and quickly grasp what you can do with it.
     *your own code*
   - Now more double code bases: Source code and documentation are the
     same python source file
+  - Interleave prose, code and output as much as you want. Notebook
+    styled examples
   - Your examples can be downloaded as python source files & Jupyter Notebooks
   - Visible error messages when your examples don't build correctly
   - Automatically link from your API documentation to examples using the functions
@@ -188,6 +204,9 @@ Build the Documentation
 <iframe src="http://nilearn.github.io/modules/generated/nilearn.input_data.NiftiMasker.html#nilearn.input_data.NiftiMasker" width="100%" height="600px"></iframe>
 #+END_HTML
 http://nilearn.github.io/
+* Thank you for your attention
+
+Start using and contributing to Sphinx-Gallery
 * Export config                                                    :noexport:
 #+BEGIN_SRC emacs-lisp :results silent :exports none
   (setq org-reveal-title-slide "
