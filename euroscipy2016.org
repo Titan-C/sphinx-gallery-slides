@@ -53,7 +53,7 @@ package and quickly grasp what you can do with it.
     same python source file
   - Your examples can be downloaded as python source files & Jupyter Notebooks
   - Visible error messages when your examples don't build correctly
-  - Automatically link from your API to examples using the functions
+  - Automatically link from your API documentation to examples using the functions
 * Is someone already using it?
 #+ATTR_HTML: :class logo
 [[http://scikit-learn.org/dev/auto_examples/index.html][file:images/scikit-learn-logo-small.png]]
@@ -183,11 +183,11 @@ Build the Documentation
 #+BEGIN_HTML
 <iframe src="https://sphinx-gallery.readthedocs.io/en/latest/auto_examples/index.html" width="100%" height="600px"></iframe>
 #+END_HTML
-** A taste of Nilearn: From API to Examples
+** From API to Examples
 #+BEGIN_HTML
 <iframe src="http://nilearn.github.io/modules/generated/nilearn.input_data.NiftiMasker.html#nilearn.input_data.NiftiMasker" width="100%" height="600px"></iframe>
 #+END_HTML
-http://nilearn.github.io/modules/generated/nilearn.input_data.NiftiMasker.html#nilearn.input_data.NiftiMasker
+http://nilearn.github.io/
 * Export config                                                    :noexport:
 #+BEGIN_SRC emacs-lisp :results silent :exports none
   (setq org-reveal-title-slide "
