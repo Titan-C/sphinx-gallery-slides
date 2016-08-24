@@ -193,8 +193,7 @@ Build the Documentation
 #+BEGIN_SRC sh
   $ make html
 #+END_SRC
-** Enjoy :)
-
+* Enjoy :)
 ** https://sphinx-gallery.readthedocs.io
 #+BEGIN_HTML
 <iframe src="https://sphinx-gallery.readthedocs.io/en/latest/auto_examples/index.html" width="100%" height="600px"></iframe>
