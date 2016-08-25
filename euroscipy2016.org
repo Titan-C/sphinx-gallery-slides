@@ -62,15 +62,16 @@ share it, so that everyone can benefit from it.
 
 #+ATTR_REVEAL: :frag (appear)
   - The Gallery building is completely automated. You just worry about:
-    *your own code*
-  - Now more double code bases: Source code and documentation are the
-    same python source file
+    writing nice examples
+  - Avoids repetition
+     - Source code and documentation are the same python file
+     - Every example receives a reference link name
   - Interleave prose, code and output as much as you want. Notebook
     styled examples
   - Your examples can be downloaded as python source files & Jupyter Notebooks
   - Visible error messages when your examples don't build correctly
   - Automatically link from your API documentation to examples using the functions
-* Is someone already using it?
+* Who uses it already?
 #+ATTR_HTML: :class logo
 [[http://scikit-learn.org/dev/auto_examples/index.html][file:images/scikit-learn-logo-small.png]]
 [[http://nilearn.github.io/auto_examples/index.html][file:images/nilearn-logo.png]]
@@ -85,9 +86,17 @@ share it, so that everyone can benefit from it.
   Most of the gallery development came first from original project
   developers. Now it's mostly maintained by me.
 #+END_NOTES
-
-* SHOWTIME
-** Setting up your Project
+* How does it look?
+** https://sphinx-gallery.readthedocs.io
+#+BEGIN_HTML
+<iframe src="https://sphinx-gallery.readthedocs.io/en/latest/auto_examples/index.html" width="100%" height="600px"></iframe>
+#+END_HTML
+** From API to Examples
+#+BEGIN_HTML
+<iframe src="http://nilearn.github.io/modules/generated/nilearn.input_data.NiftiMasker.html#nilearn.input_data.NiftiMasker" width="100%" height="600px"></iframe>
+#+END_HTML
+http://nilearn.github.io/
+* Setting up your Project
 #+BEGIN_SRC sh
 awesome_python_project
 ├── doc
@@ -193,16 +202,6 @@ Build the Documentation
 #+BEGIN_SRC sh
   $ make html
 #+END_SRC
-* Enjoy :)
-** https://sphinx-gallery.readthedocs.io
-#+BEGIN_HTML
-<iframe src="https://sphinx-gallery.readthedocs.io/en/latest/auto_examples/index.html" width="100%" height="600px"></iframe>
-#+END_HTML
-** From API to Examples
-#+BEGIN_HTML
-<iframe src="http://nilearn.github.io/modules/generated/nilearn.input_data.NiftiMasker.html#nilearn.input_data.NiftiMasker" width="100%" height="600px"></iframe>
-#+END_HTML
-http://nilearn.github.io/
 * Thank you for your attention
 
 Start using and contributing to Sphinx-Gallery
