@@ -157,18 +157,20 @@ With the *plot_* prefix Sphinx-Gallery executes the script
   plt.imshow(z, cmap=plt.cm.get_cmap('hot'))
 
   plt.figure()
-  plt.imshow(z, cmap=plt.cm.get_cmap('Spectral'), interpolation='none')
+  plt.imshow(z, cmap=plt.cm.get_cmap('Spectral'),
+             interpolation='none')
 
   # Not needed for the Gallery.
   # Only for direct execution
   plt.show()
 
-  ###############################################################################
+  ################################################
   # You can define blocks in your source code
   # with interleaving prose.
   #
 
-  print("This writes to stdout and will be displayed in the HTML file")
+  print("This writes to stdout and will be",
+        " displayed in the HTML file")
 #+END_SRC
 
 ** Setting up Sphinx-Gallery
