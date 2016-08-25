@@ -98,8 +98,8 @@ documenting our software.
 </section>
 <section id="slide-orgheadline1">
 <h3 id="orgheadline1">You are certainly familiar with this</h3>
-<iframe src="http://matplotlib.org/gallery.html" width="80%" height="600px"></iframe>
 <p>
+<a href="http://matplotlib.org/gallery.html"><img src="images/matplotlib_gallery.jpg" alt="matplotlib_gallery.jpg" /></a>
 <a href="http://matplotlib.org/gallery.html">http://matplotlib.org/gallery.html</a>
 </p>
 <aside class="notes">
@@ -183,8 +183,8 @@ developers. Now it's mostly maintained by me.
 </section>
 <section id="slide-orgheadline7">
 <h3 id="orgheadline7">From API to Examples</h3>
-<iframe src="http://nilearn.github.io/modules/generated/nilearn.input_data.NiftiMasker.html#nilearn.input_data.NiftiMasker" width="100%" height="600px"></iframe>
 <p>
+<a href="http://nilearn.github.io/modules/generated/nilearn.input_data.NiftiMasker.html#nilearn.input_data.NiftiMasker"><img src="images/nilearn_api.jpg" alt="nilearn_api.jpg" /></a>
 <a href="http://nilearn.github.io/">http://nilearn.github.io/</a>
 </p>
 </section>
@@ -260,18 +260,20 @@ plt.figure()
 plt.imshow(z, cmap=plt.cm.get_cmap('hot'))
 
 plt.figure()
-plt.imshow(z, cmap=plt.cm.get_cmap('Spectral'), interpolation='none')
+plt.imshow(z, cmap=plt.cm.get_cmap('Spectral'),
+           interpolation='none')
 
 # Not needed for the Gallery.
 # Only for direct execution
 plt.show()
 
-###############################################################################
+################################################
 # You can define blocks in your source code
 # with interleaving prose.
 #
 
-print("This writes to stdout and will be displayed in the HTML file")
+print("This writes to stdout and will be",
+      " displayed in the HTML file")
 </code></pre>
 </div>
 
